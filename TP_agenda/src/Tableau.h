@@ -26,6 +26,8 @@ public:
 	int getNbElement();
 	int getTaille();
 
+	Entree obtenirEntree(int indice);
+
 private:
 	int taille, nb_element;
 	Entree *entree;

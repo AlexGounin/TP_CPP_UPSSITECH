@@ -82,6 +82,13 @@ int Tableau::getTaille() {
 	return this->taille;
 }
 
+Entree Tableau::obtenirEntree(int indice) {
+	if(indice > this->nb_element || indice < 0) {
+		return this->entree[0];
+	}
+	return this->entree[indice];
+}
+
 //destructeur
 Tableau::~Tableau() {
 	delete this->entree;
