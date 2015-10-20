@@ -4,16 +4,19 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
+../src/Agenda.cpp \
 ../src/Entree.cpp \
 ../src/TP_agenda.cpp \
 ../src/Tableau.cpp 
 
 OBJS += \
+./src/Agenda.o \
 ./src/Entree.o \
 ./src/TP_agenda.o \
 ./src/Tableau.o 
 
 CPP_DEPS += \
+./src/Agenda.d \
 ./src/Entree.d \
 ./src/TP_agenda.d \
 ./src/Tableau.d 
