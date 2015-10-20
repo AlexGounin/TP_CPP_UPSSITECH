@@ -5,15 +5,18 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
 ../src/Entree.cpp \
-../src/TP_agenda.cpp 
+../src/TP_agenda.cpp \
+../src/Tableau.cpp 
 
 OBJS += \
 ./src/Entree.o \
-./src/TP_agenda.o 
+./src/TP_agenda.o \
+./src/Tableau.o 
 
 CPP_DEPS += \
 ./src/Entree.d \
-./src/TP_agenda.d 
+./src/TP_agenda.d \
+./src/Tableau.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

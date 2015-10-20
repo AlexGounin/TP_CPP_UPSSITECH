@@ -56,15 +56,19 @@ void Tableau::supprimer(string nom, string num) {
 
 //Suppression a partir d'un nom
 void Tableau::supprimer(string nom) {
-	bool find = false;
-	for(int i = 1; i < this->nb_element; ++i) {
-		//quand ils sont egaux
-		if(this->entree[i-1].getNom().compare(nom) == 0) {
-			find = true;
+	bool find = false, continuer = true;
+	while(continuer) {
+		find = false;
+		for(int i = 1; i < this->nb_element; ++i) {
+			//quand ils sont egaux
+			if(this->entree[i-1].getNom().compare(nom) == 0) {
+				find = true;
+			}
+			if(find) {
+				this->entree[i-1] = this->entree[i];
+			}
 		}
-		if(find) {
-			this->entree[i-1] = this->entree[i];
-		}
+		continuer = find;
 	}
 }
 
