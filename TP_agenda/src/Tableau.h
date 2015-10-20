@@ -14,8 +14,17 @@ namespace std {
 
 class Tableau {
 public:
-	Tableau();
+	Tableau(int taille = 20);
 	virtual ~Tableau();
+	Tableau(Tableau const& tab);
+
+	void afficher();
+	void ajouter(string nom, string num);
+	void supprimer(string nom, string num);
+	void supprimer(string nom);
+
+	int getNbElement();
+	int getTaille();
 
 private:
 	int taille, nb_element;
