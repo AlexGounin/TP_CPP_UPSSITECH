@@ -15,6 +15,7 @@ namespace std {
 class Entree {
 public:
 	Entree(string name, string num);
+	Entree();
 	virtual ~Entree();
 
 	void affiche();
