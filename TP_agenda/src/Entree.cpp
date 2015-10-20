@@ -19,8 +19,7 @@ Entree::~Entree() {
 }
 
 void Entree::affiche(){
-	cout << "nom: " << this->nom << endl;
-	cout << "numero de tel: " << this->num_tel << endl;
+	cout << this->nom << "\t" << this->num_tel << endl;
 }
 
 string Entree::getNom() {
