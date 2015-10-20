@@ -8,6 +8,8 @@
 #ifndef AGENDA_H_
 #define AGENDA_H_
 
+#define POINTEUR
+
 #include "Tableau.h"
 
 namespace std {
@@ -25,7 +27,11 @@ public:
 	void supprimer(string nom);
 
 private:
+#ifdef POINTEUR
+	Tableau *mon_tab;
+#else
 	Tableau mon_tab;
+#endif
 };
 
 } /* namespace std */

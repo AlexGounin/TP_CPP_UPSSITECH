@@ -50,7 +50,11 @@ int main() {
 	tab.afficher();
 
 	//TEST sur la classe Agenda
-	cout << endl << "AGENDA" << endl;
+#ifdef POINTEUR
+	cout << endl << "AGENDA avec pointeur" << endl;
+#else
+	cout << endl << "AGENDA sans pointeur" << endl;
+#endif
 	Agenda my_agenda;
 
 	my_agenda.ajouter(e1.getNom(), e1.getNum());
