@@ -8,6 +8,7 @@
 #include "Tableau.h"
 
 #include <stdlib.h>
+#include <iostream>
 
 namespace std {
 
@@ -15,17 +16,22 @@ namespace std {
 Tableau::Tableau(int taille) {
 	this->taille = taille;
 	this->nb_element = 0;
+	this->entree = new Entree[taille];
 }
 
 //constructeur par copy
 Tableau::Tableau(Tableau const& tab) {
 	this->nb_element = tab.nb_element;
 	this->taille = tab.taille;
-	this->entree = new Entree(*(tab.entree));
+	this->entree = new Entree[this->taille];
+	for(int i = 0; i < this->nb_element; ++i) {
+		this->entree[i] = tab.obtenirEntree(i);
+	}
 }
 
 //Affiche mon tableau en entier
 void Tableau::afficher() {
+	cout << "taille: " << this->taille << " Nombre element: " << this->nb_element << endl;
 	for(int i = 0; i < this->nb_element; ++i) {
 		this->entree[i].affiche();
 	}
@@ -52,6 +58,7 @@ void Tableau::supprimer(string nom, string num) {
 			this->entree[i-1] = this->entree[i];
 		}
 	}
+	this->nb_element--;
 }
 
 //Suppression a partir d'un nom
@@ -59,7 +66,7 @@ void Tableau::supprimer(string nom) {
 	bool find = false, continuer = true;
 	while(continuer) {
 		find = false;
-		for(int i = 1; i < this->nb_element; ++i) {
+		for(int i = 1; i <= this->nb_element; ++i) {
 			//quand ils sont egaux
 			if(this->entree[i-1].getNom().compare(nom) == 0) {
 				find = true;
@@ -67,6 +74,9 @@ void Tableau::supprimer(string nom) {
 			if(find) {
 				this->entree[i-1] = this->entree[i];
 			}
+		}
+		if(find) {
+			this->nb_element--;
 		}
 		continuer = find;
 	}
@@ -82,7 +92,7 @@ int Tableau::getTaille() {
 	return this->taille;
 }
 
-Entree Tableau::obtenirEntree(int indice) {
+Entree Tableau::obtenirEntree(int indice) const {
 	if(indice > this->nb_element || indice < 0) {
 		return this->entree[0];
 	}

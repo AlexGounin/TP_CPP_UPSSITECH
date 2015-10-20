@@ -15,10 +15,6 @@ Entree::Entree(string name, string num) {
 	this->num_tel = num;
 }
 
-Entree::Entree() {
-
-}
-
 Entree::~Entree() {
 }
 

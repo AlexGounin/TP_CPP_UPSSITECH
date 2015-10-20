@@ -6,11 +6,13 @@
  */
 
 #include "Agenda.h"
+#include "Entree.h"
+#include <iostream>
 
 namespace std {
 
-Agenda::Agenda(int taille) {
-	this->mon_tab = Tableau(taille);
+Agenda::Agenda(int taille): mon_tab(taille) {
+
 }
 
 Agenda::Agenda(Agenda const& agd) {
@@ -36,9 +38,10 @@ void Agenda::supprimer(string nom) {
 void Agenda::concat(Agenda agd) {
 	int taille = this->mon_tab.getTaille() + agd.mon_tab.getTaille();
 	Tableau nouveau = Tableau(taille);
-
+	Entree tmp;
 	for(int i = 0; i < this->mon_tab.getNbElement(); ++i) {
-
+		tmp = this->mon_tab.obtenirEntree(i);
+		nouveau.ajouter(tmp.getNom(), tmp.getNum());
 	}
 }
 Agenda::~Agenda() {

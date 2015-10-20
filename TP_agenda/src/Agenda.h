@@ -14,7 +14,7 @@ namespace std {
 
 class Agenda {
 public:
-	Agenda(int taille);
+	Agenda(int taille = 20);
 	virtual ~Agenda();
 	Agenda(Agenda const& agd);
 
