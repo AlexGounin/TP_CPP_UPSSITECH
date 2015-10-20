@@ -18,6 +18,10 @@ public:
 	virtual ~Entree();
 
 	void affiche();
+	string getNom();
+	string getNum();
+	void setNom(string nom);
+	void setNum(string num);
 
 private:
 	string nom;

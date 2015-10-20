@@ -6,6 +6,7 @@
  */
 
 #include "Entree.h"
+#include <iostream>
 
 namespace std {
 
@@ -20,6 +21,22 @@ Entree::~Entree() {
 void Entree::affiche(){
 	cout << "nom: " << this->nom << endl;
 	cout << "numero de tel: " << this->num_tel << endl;
+}
+
+string Entree::getNom() {
+	return this->nom;
+}
+
+string Entree::getNum() {
+	return this->num_tel;
+}
+
+void Entree::setNom(string nom) {
+	this->nom = nom;
+}
+
+void Entree::setNum(string num) {
+	this->num_tel = num;
 }
 
 } /* namespace std */
