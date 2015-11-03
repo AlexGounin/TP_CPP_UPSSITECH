@@ -37,6 +37,13 @@ void Tableau::afficher() {
 	}
 }
 
+void Tableau::afficher(ostream & out) {
+	out << "taille: " << this->taille << " Nombre element: " << this->nb_element << endl;
+	for(int i = 0; i < this->nb_element; ++i) {
+		this->entree[i].affiche(out);
+	}
+}
+
 //Ajout d'une entree dans notre tableau
 void Tableau::ajouter(string nom, string num) {
 	if(this->nb_element >= this->taille) {
@@ -102,6 +109,16 @@ Entree Tableau::obtenirEntree(int indice) const {
 //destructeur
 Tableau::~Tableau() {
 	delete this->entree;
+}
+
+bool Tableau::operator/(string nom) {
+	for(int i = 0; i < this->nb_element; ++i) {
+		if(this->entree[i].getNom() == nom) {
+			return true;
+		}
+	}
+
+	return false;
 }
 
 } /* namespace std */

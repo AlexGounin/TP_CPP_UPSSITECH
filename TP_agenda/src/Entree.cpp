@@ -15,6 +15,11 @@ Entree::Entree(string name, string num) {
 	this->num_tel = num;
 }
 
+Entree::Entree(Entree const& ent) {
+	this->nom = ent.nom;
+	this->num_tel = ent.num_tel;
+}
+
 Entree::~Entree() {
 }
 
@@ -22,11 +27,15 @@ void Entree::affiche(){
 	cout << this->nom << "\t" << this->num_tel << endl;
 }
 
-string Entree::getNom() {
+void Entree::affiche(ostream& out) {
+	out << this->nom << "\t" << this->num_tel << endl;
+}
+
+string Entree::getNom() const{
 	return this->nom;
 }
 
-string Entree::getNum() {
+string Entree::getNum() const{
 	return this->num_tel;
 }
 

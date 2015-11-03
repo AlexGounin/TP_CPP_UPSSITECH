@@ -15,11 +15,13 @@ namespace std {
 class Entree {
 public:
 	Entree(string name = "", string num = "");
+	Entree(Entree const& ent);
 	virtual ~Entree();
 
 	void affiche();
-	string getNom();
-	string getNum();
+	void affiche(ostream& out);
+	string getNom() const;
+	string getNum() const;
 	void setNom(string nom);
 	void setNum(string num);
 

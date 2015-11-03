@@ -19,6 +19,7 @@ public:
 	Tableau(Tableau const& tab);
 
 	void afficher();
+	void afficher(ostream& out);
 	void ajouter(string nom, string num);
 	void supprimer(string nom, string num);
 	void supprimer(string nom);
@@ -27,6 +28,8 @@ public:
 	int getTaille();
 
 	Entree obtenirEntree(int indice) const;
+
+	bool operator/(string nom);
 
 private:
 	int taille, nb_element;

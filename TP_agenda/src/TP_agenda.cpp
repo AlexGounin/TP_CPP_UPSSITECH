@@ -76,5 +76,56 @@ int main() {
 	my_agenda.supprimer(e1.getNom());
 	cout << "apres supression 2 on as:" << endl;
 	my_agenda.afficher();
+
+	Agenda agd2(10);
+	agd2.ajouter("azerty", "444");
+	agd2.ajouter("qsdfgh", "555");
+	agd2.ajouter("wxcvbn", "666");
+	my_agenda.concat(agd2);
+	cout << "concatenation de 2 agenda:" << endl;
+	cout << my_agenda << endl;
+
+	cout << "test sur les operateur" << endl;
+	cout << my_agenda << endl;
+
+	cout << "test sur operator += ajout:" << endl;
+	my_agenda += Entree("acoucou", "1235");
+	cout << my_agenda << endl;
+
+	cout << "test sur operateur +:" << endl;
+	cout << my_agenda + agd2 << endl;
+
+	cout << "test sur l'operateur d'affectation: " << endl;
+	Agenda test = my_agenda;
+	cout << test << endl;
+
+	cout << "test sur l'egalité de 2 agenda:" << endl;
+	if(test == my_agenda) {
+		cout << "les agendas sont egaux" << endl << endl;
+	}
+
+	cout << "test operateur += concatanation:" << endl;
+	test += my_agenda;
+	cout << test << endl;
+
+	cout << "test operateur -= supprimer les nom associer" << endl;
+	test -= "azerty";
+	cout << test << endl;
+
+	cout << "test sur l'operateur []: recuperation d'une entree:" << endl;
+	Entree tmp = test["qsdfgh"];
+	tmp.affiche();
+
+	cout << "test sur l'operateur / " << endl;
+	if("autre" / my_agenda) {
+		cout << "autre est dans mon agenda" << endl;
+	}
+	if(!("dgftl" / my_agenda)) {
+		cout << "dgftl est pas dans mon agenda" << endl;
+	}
+
+	cout << endl << "test sur l'operateur ()" << endl;
+	my_agenda("a");
+
 	return 0;
 }
